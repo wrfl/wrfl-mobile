@@ -1,0 +1,43 @@
+##
+## This file is the suggested default .gitignore to be used by cca applications
+##
+
+# Usually, you shouldn't version control `platforms/` and `plugins/`. They are
+# build artefacts which change from machine to machine and over time.
+# If you are manually making edits in these folders, proceed with caution.
+platforms/
+plugins/
+
+# Other cca artefacts.
+cca
+cca.cmd
+
+.DS_Store
+*.sublime-workspace
+node_modules
+npm-debug.log
+dist/
+build/
+.idea/
+.sass-cache/
+.tmp/
+bower_components/
+tmp/
+
+###Android###
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+###Cordova###
+cordova/
