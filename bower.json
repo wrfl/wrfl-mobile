@@ -15,6 +15,7 @@
   "dependencies": {
     "bootstrap": "~3.1.1",
     "jquery-touchswipe": "~1.6.4",
-    "jquery.transit": "~0.9.9"
+    "jquery.transit": "~0.9.9",
+    "buzz": "1.1.0"
   }
 }
