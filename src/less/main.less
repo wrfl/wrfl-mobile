@@ -1,3 +1,43 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-color: #000;
+  color: #fff;
+}
+
+.now_playing {
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .art {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      // -webkit-filter: blur(2px);
+      
+    }
+  }
+
+  .track_info {
+    position: absolute;
+    bottom: 180px;
+    left: 20px;
+    z-index: 2;
+
+    .time {
+      margin-top: 10px;
+    }
+  }
 }

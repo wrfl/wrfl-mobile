@@ -5,19 +5,22 @@
     %link{href: "css/all.css", rel: "stylesheet", type: "text/css"}
     %script{src: "js/all.js"}
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top
-      .container-fluid
-        %ul.nav.navbar-nav.navbar-left
-        %ul.nav.navbar-nav.navbar-right
-          %li
-            %a.time-playing
-          %li
-            %a.btn-play{href: "#"} Play
-          %li
-            %a.btn-pause{href: "#"} Pause
+    .now_playing
+      .art
+      .track_info
+        .track
+        .artist
+        .album
 
-        #now_playing
-	       %iframe{scrolling: "no", width: "100%", height: "250", frameborder: "0", src: "http://wrfl.fm/now"}
+        .time
+        .dj
 
     %nav.navbar.navbar-inverse.navbar-fixed-bottom
       .container-fluid
+        %ul.nav.navbar-nav
+          %li
+            %span WRFL
+          %li
+            %a.time-playing
+          %li
+            %a.btn-playpause{href: "#"} Listen Now

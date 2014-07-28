@@ -60,6 +60,7 @@ gulp.task('minify-js', ['coffee'], function() {
                    'bower_components/jquery-touchswipe/jquery.touchSwipe.min.js',
                    'bower_components/jquery.transit/jquery.transit.js',
                    'bower_components/buzz/dist/buzz.min.js',
+                   'bower_components/moment/min/moment.min.js',
                    tmp_js_path + '/**/*.js']).
               pipe(concat('all.js').on('error', on_error)).
               pipe(gulp.dest('./www/js')).
