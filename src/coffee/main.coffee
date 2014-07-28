@@ -7,6 +7,11 @@
 @player = undefined
 
 $ ->
+  $(".art").swipe
+    threshold: 25
+    swipeLeft: toggle_vinyl
+    swipeRight: toggle_vinyl
+
   $('.btn-playpause').click toggle_stream
   refresh()
 
@@ -55,6 +60,13 @@ get_now_playing = =>
     get_art()
     update_ui()
 
+toggle_vinyl = =>
+  if $('.record').hasClass 'vinyl'
+    $('.record').removeClass 'vinyl'
+  else
+    $('.record').addClass 'vinyl'
+
+
 update_ui = =>
   $('.track').text '"' + @now_playing.track + '"'
   $('.artist').text @now_playing.artist
@@ -62,7 +74,7 @@ update_ui = =>
   $('.time').text "Played at " + moment(@now_playing.played_at*1000).format("h:mma")
   $('.dj').text "by " + @now_playing.dj
 
-  if @now_playing.art_url
-    $('.art').html "<img src='#{@now_playing.art_url}'>"
-  else
-    $('.art').empty()
+  art_url = @now_playing.art_url || '/assets/default.jpg'
+  $('.art .record').transition {opacity: 0}, 1000, =>
+    $('.record .image').css({'backgroundImage': "url(#{art_url})"})
+    $('.art .record').delay(1000).transition({opacity: 1}, 1000)
