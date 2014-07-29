@@ -30,10 +30,11 @@ toggle_stream = =>
 
 play_stream = =>
   @player = new buzz.sound @stream_url
-
   @player.play().fadeIn().bind "timeupdate", =>
     timer = buzz.toTimer(@player.getTime())
     $(".time-playing").text(timer)
+  $('.vinyl').addClass 'playing'
+  $('.btn-playpause').addClass 'playing'
 
 pause_stream = =>
   if @player
@@ -41,6 +42,8 @@ pause_stream = =>
     @player.fadeOut 1000, =>
       @player.pause()
       @player = undefined
+  $('.vinyl').removeClass 'playing'
+  $('.btn-playpause').removeClass 'playing'
 
 get_art = =>
   # Fetch an image via the Echo Nest API

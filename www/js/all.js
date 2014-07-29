@@ -823,11 +823,13 @@ toggle_stream = (function(_this) {
 play_stream = (function(_this) {
   return function() {
     _this.player = new buzz.sound(_this.stream_url);
-    return _this.player.play().fadeIn().bind("timeupdate", function() {
+    _this.player.play().fadeIn().bind("timeupdate", function() {
       var timer;
       timer = buzz.toTimer(_this.player.getTime());
       return $(".time-playing").text(timer);
     });
+    $('.vinyl').addClass('playing');
+    return $('.btn-playpause').addClass('playing');
   };
 })(this);
 
@@ -835,11 +837,13 @@ pause_stream = (function(_this) {
   return function() {
     if (_this.player) {
       _this.player.unbind("timeupdate");
-      return _this.player.fadeOut(1000, function() {
+      _this.player.fadeOut(1000, function() {
         _this.player.pause();
         return _this.player = void 0;
       });
     }
+    $('.vinyl').removeClass('playing');
+    return $('.btn-playpause').removeClass('playing');
   };
 })(this);
 
