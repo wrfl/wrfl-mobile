@@ -8,6 +8,46 @@ body {
   color: #fff;
 }
 
+.about {
+  position: absolute;
+  left: -3000px;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll-x;
+  z-index: 1000;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+
+  &.visible {
+    left: 0;
+    opacity: 1;
+  }
+
+  &, a, a.close {
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid #2b2b2b;
+      padding: 20px;
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+  }
+}
+
 .logo {
   background-image: url(/assets/wrfl-logo.png);
   background-size: contain;
@@ -46,7 +86,7 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  bottom: 20px;
+  bottom: 0;
   font-weight: 900;
   font-size: 18px;
 
@@ -109,16 +149,20 @@ body {
 
   .track_info {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
     z-index: 2;
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
 
     .time {
       margin-top: 10px;
     }
 
     .time, .dj {
-      color: #aaa;
+      color: #ddd;
     }
   }
 }
