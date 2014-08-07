@@ -58,6 +58,7 @@ play_stream = =>
   $('.vinyl').addClass 'playing'
   $('.btn-playpause').addClass 'playing'
   @is_playing = true
+  show_notification(@now_playing.track)
 
 refresh = =>
   get_now_playing()
@@ -65,6 +66,18 @@ refresh = =>
 
 show_about = =>
   $('.about').addClass 'visible'
+
+show_notification = (message, data={}, id=1) =>
+  data = JSON.stringify({ test: 123 })
+
+  window.plugin.notification.local.add
+    id: id
+    message: message
+    json: data
+
+  window.plugin.notification.local.onclick = (id, state, json) =>
+    console.log(id, JSON.parse(json).test)
+
 
 toggle_stream = =>
   if @player
